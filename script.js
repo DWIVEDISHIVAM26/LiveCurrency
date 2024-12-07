@@ -6,30 +6,34 @@ const settings = {
     headers: { accept: "application/json" },
 };
 
-// Function to update prices
+let cachedData = null; // Cache data here
+let lastUpdated = null; // Track the last update time
+
 function updatePrices() {
+    if (lastUpdated && Date.now() - lastUpdated < 300000) {
+        console.log("Using cached data"); // Use cached data for 5 minutes
+        displayPrices(cachedData);
+        return;
+    }
+
     $.ajax(settings)
-        .done((response) => {
-            document.getElementById("bitcoin").textContent = response.bitcoin.usd.toFixed(2);
-            document.getElementById("ethereum").textContent = response.ethereum.usd.toFixed(2);
-            document.getElementById("dogecoin").textContent = response.dogecoin.usd.toFixed(4);
+        .done(function (response) {
+            cachedData = response; // Cache the response
+            lastUpdated = Date.now(); // Update timestamp
+            displayPrices(response);
         })
-        .fail(() => {
-            console.error("Error fetching prices.");
-            document.getElementById("bitcoin").textContent = "N/A";
-            document.getElementById("ethereum").textContent = "N/A";
-            document.getElementById("dogecoin").textContent = "N/A";
+        .fail(function (error) {
+            console.error("API Error:", error);
+            alert("Rate limit exceeded. Please wait before trying again.");
         });
 }
 
-// Toggle language
-let lang = "EN";
-document.getElementById("lang-btn").addEventListener("click", () => {
-    lang = lang === "EN" ? "ES" : "EN";
-    document.getElementById("lang-btn").textContent = lang;
-    alert("Language switched to: " + lang);
-});
+function displayPrices(data) {
+    document.getElementById("bitcoin").innerHTML = data.bitcoin?.usd?.toFixed(2) || "N/A";
+    document.getElementById("ethereum").innerHTML = data.ethereum?.usd?.toFixed(2) || "N/A";
+    document.getElementById("dogecoin").innerHTML = data.dogecoin?.usd?.toFixed(4) || "N/A";
+}
 
-// Fetch prices every minute
+// Call the API every 5 minutes
 updatePrices();
-setInterval(updatePrices, 60000);
+setInterval(updatePrices, 300000);

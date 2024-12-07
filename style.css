@@ -97,3 +97,6 @@ section {
     text-decoration: none;
     margin: 10px 0;
 }
+.btn {
+    display: none;
+}
