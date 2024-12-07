@@ -3,49 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crypto Tracker</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="container">
+        <!-- Navigation Bar -->
         <nav>
-            <img src="images/logo.png" class="logo">
+            <img src="images/logo.png" alt="Crypto Logo" class="logo">
             <ul>
                 <li><a href="#market">Market</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#white-papers">White Papers</a></li>
                 <li><a href="#about-us">About Us</a></li>
             </ul>
-            <a href="#" class="btn" id="lang-btn">EN</a>
+            <button id="lang-btn" class="btn">EN</button>
         </nav>
 
+        <!-- Hero Section -->
         <div class="content">
             <h1>BUY & <br>SELL <span>Crypto</span></h1>
-            <p>Your trusted gateway to the world of cryptocurrency—secure,<br> transparent, and built to empower your financial journey.</p>
+            <p>Your trusted gateway to the world of cryptocurrency—secure, transparent, and built to empower your financial journey.</p>
             <a href="#market" class="btn">Explore More</a>
         </div>
 
+        <!-- Coin List Section -->
         <div class="coin-list" id="market">
-            <!-- Coin List dynamically updates -->
-            <div class="coin">
-                <img src="images/bitcoin.png">
+            <div class="coin" role="button">
+                <img src="images/bitcoin.png" alt="Bitcoin Logo">
                 <div>
-                    <h3>$<span id="bitcoin"></span></h3>
+                    <h3>$<span id="bitcoin">Loading...</span></h3>
                     <p>Bitcoin</p>
                 </div>
             </div>
-            <div class="coin">
-                <img src="images/ethereum.png">
+            <div class="coin" role="button">
+                <img src="images/ethereum.png" alt="Ethereum Logo">
                 <div>
-                    <h3>$<span id="ethereum"></span></h3>
+                    <h3>$<span id="ethereum">Loading...</span></h3>
                     <p>Ethereum</p>
                 </div>
             </div>
-            <div class="coin">
-                <img src="images/dogecoin.png">
+            <div class="coin" role="button">
+                <img src="images/dogecoin.png" alt="Dogecoin Logo">
                 <div>
-                    <h3>$<span id="dogecoin"></span></h3>
+                    <h3>$<span id="dogecoin">Loading...</span></h3>
                     <p>Dogecoin</p>
                 </div>
             </div>
