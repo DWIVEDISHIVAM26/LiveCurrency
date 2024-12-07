@@ -5,45 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="container">
         <nav>
-            <img src="logo.png" class="logo">
+            <img src="images/logo.png" class="logo">
             <ul>
-                <li><a href="#">Market</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">White Papers</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#white-papers">White Papers</a></li>
+                <li><a href="#about-us">About Us</a></li>
             </ul>
-            <a href="#" class="btn">EN</a>
+            <a href="#" class="btn" id="lang-btn">EN</a>
         </nav>
 
         <div class="content">
             <h1>BUY & <br>SELL <span>Crypto</span></h1>
             <p>Your trusted gateway to the world of cryptocurrency—secure,<br> transparent, and built to empower your financial journey.</p>
-
-            <a href="#"class = "btn">Explore More</a>
+            <a href="#market" class="btn">Explore More</a>
         </div>
 
-        <div class="coin-list">
+        <div class="coin-list" id="market">
+            <!-- Coin List dynamically updates -->
             <div class="coin">
-                <img src="bitcoin.png">
+                <img src="images/bitcoin.png">
                 <div>
                     <h3>$<span id="bitcoin"></span></h3>
                     <p>Bitcoin</p>
                 </div>
             </div>
             <div class="coin">
-                <img src="ethereum.png">
+                <img src="images/ethereum.png">
                 <div>
                     <h3>$<span id="ethereum"></span></h3>
                     <p>Ethereum</p>
                 </div>
             </div>
             <div class="coin">
-                <img src="dogecoin.png">
+                <img src="images/dogecoin.png">
                 <div>
                     <h3>$<span id="dogecoin"></span></h3>
                     <p>Dogecoin</p>
@@ -51,6 +51,31 @@
             </div>
         </div>
 
+        <!-- Features Section -->
+        <section id="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Secure Transactions</li>
+                <li>Low Fees</li>
+                <li>Real-time Updates</li>
+            </ul>
+        </section>
+
+        <!-- White Papers Section -->
+        <section id="white-papers">
+            <h2>White Papers</h2>
+            <div class="carousel">
+                <a href="#">Bitcoin White Paper</a>
+                <a href="#">Ethereum White Paper</a>
+                <a href="#">Decentralization 101</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>We are a team dedicated to making cryptocurrency accessible for everyone.</p>
+        </section>
     </div>
 
     <script src="script.js"></script>
